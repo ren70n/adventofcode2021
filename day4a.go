@@ -63,7 +63,7 @@ func checkLines(boards []board)(board,bool){
 		for i,_:=range board.shot{
 			z:=0
 			for x:=0;x<5;x++{
-				if board.shot[i][z]==1{z++}
+				if board.shot[i][x]==1{z++}
 			}
 			if z==5 { return board,true}
 		}
