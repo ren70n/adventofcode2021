@@ -30,25 +30,11 @@ func main() {
 		b,e := checkLines(boards)
 		
 		if e == true{
-			// fmt.Println(b)
 			fmt.Println(countRes(b,num))
 			break
 		}
 	}
 
-}
-
-func countRes(b board,i int)int{
-	res := 0
-	for y:=0;y<5;y++{
-		for x:=0;x<5;x++{
-			if b.shot[y][x]==0{
-				res+=b.numbers[y][x]
-			}
-		}
-	}
-
-	return res * i
 }
 
 func checkLines(boards []board)(board,bool){
@@ -60,10 +46,10 @@ func checkLines(boards []board)(board,bool){
 			}
 			if z==5 { return board,true}
 		}
-		for i,_:=range board.shot{
+		for col,_:=range board.shot{
 			z:=0
 			for x:=0;x<5;x++{
-				if board.shot[i][x]==1{z++}
+				if board.shot[x][col]==1{z++}
 			}
 			if z==5 { return board,true}
 		}
